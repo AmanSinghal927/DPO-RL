@@ -1,0 +1,11 @@
+# Activate new environment
+# source env/bin/activate
+
+# Dependancies
+# pip install triton==2.0.0
+# pip install -r requirements.txt
+
+# Create a new environemnt
+# python3 -m venv dpo
+# source dpo/bin/activate
+

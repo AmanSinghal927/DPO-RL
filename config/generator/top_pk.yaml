@@ -1,0 +1,3 @@
+top_p: True
+top_k: True
+device_map: "auto"

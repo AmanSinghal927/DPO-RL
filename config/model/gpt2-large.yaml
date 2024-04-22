@@ -1,0 +1,10 @@
+name_or_path: gpt2-large
+tokenizer_name_or_path: null
+archive: null
+block_name: GPT2Block
+checkpoint: "/scratch/as14661/dpo_base/models/gpt_2/stf_model_weights.bin"
+pad_left: True
+
+policy_dtype: float32
+fsdp_policy_mp: null
+reference_dtype: float16

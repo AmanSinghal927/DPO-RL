@@ -1,0 +1,5 @@
+batch_size: 256
+max_new_tokens: 60
+top_k: 50
+top_p: 0.95
+DP: True 
