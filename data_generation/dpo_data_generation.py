@@ -12,6 +12,7 @@ import _datasets
 from _datasets import imdb
 from inference import LM
 import logging
+import gdown
 
 class Generator:
     def __init__(self, cfg):
@@ -42,7 +43,11 @@ class Generator:
     
     def load_checkpoint(self):
         print('loading the checkpoint')
-        self.model.load_state_dict(torch.load(self.cfg.model.checkpoint), strict=False)
+        try:
+            self.model.load_state_dict(torch.load(self.cfg.model.checkpoint), strict=False)
+        except:
+            gdown.download("https://drive.google.com/file/d/1ZPlfmfkCindqJfD8eNrl8kwtMJ2f1Nqv/view", self.cfg.model.checkpoint, quiet=False)
+            self.model.load_state_dict(torch.load(self.cfg.model.checkpoint), strict=False)
         print('checkpoint loading completed!')
 
 
@@ -59,7 +64,7 @@ def main(config):
     first_100_rows = raw_data.sampled_dataset.select(indices)
     lm = LM(generator.tokenizer, generator.model)
     lm.get_inference(first_100_rows, config.inference)
-    lm.generated_dataset.save_to_disk("generated_data_without_dp_1000_imdb_4_4_8")
+    lm.generated_dataset.save_to_disk("generated_data_with_dp_1000_imdb_4_4_8")
 
 
 if __name__ == '__main__':
