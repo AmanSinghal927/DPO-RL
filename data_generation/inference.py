@@ -4,9 +4,10 @@ import logging
 from utils import get_time
 
 class LM:
-    def __init__(self, tokenizer, model):
+    def __init__(self, tokenizer, model, local_rank='cuda'):
        self.model = model
        self.tokenizer = tokenizer
+       self.local_rank = local_rank
        print ("Created LM object for generation")
        
     def perform_inference(self, samples):
@@ -14,7 +15,7 @@ class LM:
         model = self.model
         inputs = tokenizer(samples, return_tensors="pt", padding=True, truncation=True, max_length=512)
         if torch.cuda.is_available():
-            inputs = {k: v.to('cuda') for k, v in inputs.items()}
+            inputs = {k: v.to(self.local_rank) for k, v in inputs.items()}
         with torch.no_grad():
             if self.dp and torch.cuda.device_count() > 1:
                 generated_ids = model.module.generate(**inputs, do_sample=True,
@@ -55,6 +56,6 @@ class LM:
         self.generated_dataset = generated_dataset
         end_time = time.time()
         get_time(start_time, end_time)
-        logging.info(f"DP is set to: {self.dp}")
+        # logging.info(f"DP is set to: {self.dp}")
         print ("Inference finished!")
         
