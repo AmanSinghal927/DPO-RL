@@ -52,6 +52,13 @@ https://huggingface.co/blog/how-to-generate
 should i use temprature > 0.6 when using top-p and top-k?
 
 ## Inference with speedup
+Create singularity config in a folder /scratch/user_id/deep
+https://sites.google.com/nyu.edu/nyu-hpc/hpc-systems/greene/software/singularity-with-miniconda
+
+Changes:
+mkdir /scratch/<NetID>/deep
+mv overlay-15GB-500K.ext3 my_deep.ext3
+
 ```
 srun --cpus-per-task=1 --mem=32GB --gres=gpu:rtx8000:1 --time=01:00:00 --pty /bin/bash
 
