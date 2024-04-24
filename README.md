@@ -58,6 +58,7 @@ https://sites.google.com/nyu.edu/nyu-hpc/hpc-systems/greene/software/singularity
 Changes:
 mkdir /scratch/<NetID>/deep
 mv overlay-15GB-500K.ext3 my_deep.ext3
+conda install conda-forge/label/gcc7::libstdcxx-ng
 
 ```
 srun --cpus-per-task=1 --mem=32GB --gres=gpu:rtx8000:1 --time=01:00:00 --pty /bin/bash
