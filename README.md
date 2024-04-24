@@ -50,4 +50,24 @@ https://huggingface.co/openai-community/gpt2-large
 - How can I determine if my generations are more human?
 https://huggingface.co/blog/how-to-generate
 should i use temprature > 0.6 when using top-p and top-k?
-- What can I do to speed up inference? ~ flash attention, quantization -> how much does this even speed up inference for 100 examples
+
+## Inference with speedup
+```
+srun --cpus-per-task=1 --mem=32GB --gres=gpu:rtx8000:1 --time=01:00:00 --pty /bin/bash
+
+singularity exec --nv --overlay /scratch/as14661/deep/my_deep.ext3:ro /scratch/work/public/singularity/cuda11.6.124-cudnn8.4.0.27-devel-ubuntu20.04.4.sif /bin/bash
+
+source /ext3/env.sh
+
+deepspeed --num_gpus 2 dpo_data_generation.py
+
+OR
+
+python dpo_data_generation.py
+
+(SINGLE GPU)
+
+Baseline: 23 minutes/1000 examples
+Deepspeed: 7 minutes/1000 examples
+
+```
