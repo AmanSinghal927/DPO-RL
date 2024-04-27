@@ -27,23 +27,7 @@
     - LORA & LLAMA: https://github.com/eric-mitchell/direct-preference-optimization/issues/43
 
 ## Notes
-- How to work with a new dataset?
-def get_dataset -> name of the dataset modify the if-else statement loop
-dataset must have 'responses', 'pairs', 'sft_target'
-Current support is for stackexchange from huggingface, Anthropic helpfulness & harmlessness, 
-stanford human preferences dataset -> filter out elements where the ratio of reward scores is less than 2
 
-policy type is: AutoModelForCausalLM
-
-Where is the reference model stored? It is indeed stored in the GPU
-FSDPTrainer: This trainer will shard both the policy and reference model across all available GPUs.
-
-
-- I want to set up my environment -> do it on HPC with a trial run; then set up environment on burst
-Pass the dataset for SFT, pass arguments like mixed precision type e.g. bfloat16 for FSDP (blfloat works for Ampeare atchitecture GPUs) 
-
-- How to create a dataset out of IMDb?
-https://huggingface.co/openai-community/gpt2-large
 
 ## Open questions
 - Why does greedy decoding lead to degeneration?
@@ -79,3 +63,6 @@ Baseline: 23 minutes/1000 examples
 Deepspeed: 7 minutes/1000 examples
 
 ```
+
+## Datasets
+https://drive.google.com/drive/folders/1w0_wujhXpVsptOAAZZyMcyZWndAPseQJ?usp=drive_link
