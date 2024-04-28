@@ -1,0 +1,14 @@
+path: "/scratch/as14661/dpo_base/data_generation/data/25k_train_{'batch_size': 512, 'max_new_tokens': 100, 'top_k': 50, 'top_p': 0.95, 'DP': False, 'deep_speed': True, 'do_sample': True, 'temperature': 0.3, 'num_beams': 'None', 'early_stopping': 'None', 'no_repeat_ngram_size': 'None'}"
+id: "id"
+inferences: "inferences" # overall field name e.g. 'inferences':[{"inference":AB, "reward":0.9}, {"inference":AB, "reward":0.9}]
+inference: "inference"
+reward: "reward"
+chosen: "chosen"
+rejected: "rejected"
+chosen_reward: "chosen_reward"
+rejected_reward: "rejected_reward"
+prompt: "prompt"
+benchmark: "benchmark"
+max_length: 108
+save: True
+testing: False

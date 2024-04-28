@@ -1,0 +1,14 @@
+model: "gpt2-large"
+checkpoint: "/scratch/as14661/dpo_base/models/gpt_2/stf_model_weights.bin"
+
+train_dataset: "/scratch/as14661/dpo_base/data_generation/data/25k_train_{'batch_size': 512, 'max_new_tokens': 100, 'top_k': 50, 'top_p': 0.95, 'DP': False, 'deep_speed': True, 'do_sample': True, 'temperature': 0.3, 'num_beams': 'None', 'early_stopping': 'None', 'no_repeat_ngram_size': 'None'}_rewards"
+train_sample: True
+per_device_train_batch_size: 8
+gradient_accumulation_steps: 4
+learning_rate: 5e-05
+logging_steps: 10
+evaluation_strategy: "epoch"
+num_train_epochs: 1
+output_dir: "dpo_descriptiveness"
+report_to: "wandb"
+max_target_length: 100
