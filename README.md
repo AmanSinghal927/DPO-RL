@@ -27,6 +27,8 @@
     - LORA & LLAMA: https://github.com/eric-mitchell/direct-preference-optimization/issues/43
 
 ## Notes
+- concatenated_batch: Concatenates chosen and rejected together into a single batch (2, 1, 512) -> (4, 1, 512), where 512 is max length
+- all_logits: torch.Size([4, 1, 512, 50257]) (distribution over vocabulary)
 
 
 ## Open questions
