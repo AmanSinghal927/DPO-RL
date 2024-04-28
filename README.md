@@ -27,7 +27,6 @@
     - LORA & LLAMA: https://github.com/eric-mitchell/direct-preference-optimization/issues/43
 
 ## Notes
-<<<<<<< HEAD
 - concatenated_batch: Concatenates chosen and rejected together into a single batch (2, 1, 512) -> (4, 1, 512), where 512 is max length
 - all_logits: torch.Size([4, 1, 512, 50257]) (distribution over vocabulary)
 - all_logps: probability calculated from all_logits, basically probability of preduting the next token in a sequence: this can basically be averaged for a sequence and
@@ -37,8 +36,6 @@
    - rejected reward: beta*(policy_chosen_logps - reference_chosen_logps)
    - rewards/accuracies: (chosen_rewards > rejected_rewards)
    - rewards/margins: (chosen_rewards - rejected_rewards).mean()
-=======
->>>>>>> 30ce5f5 (Update README.md)
 
 
 ## Open questions
