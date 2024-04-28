@@ -29,6 +29,13 @@
 ## Notes
 - concatenated_batch: Concatenates chosen and rejected together into a single batch (2, 1, 512) -> (4, 1, 512), where 512 is max length
 - all_logits: torch.Size([4, 1, 512, 50257]) (distribution over vocabulary)
+- all_logps: probability calculated from all_logits, basically probability of preduting the next token in a sequence: this can basically be averaged for a sequence and
+  have its dimension reduced to (batch_size,) and be taken log of
+- Rewards: Higher chosen reward, lower rejected reward is good, Higher margins are better, Higher accuracies are better
+   - chosen reward: beta*(policy_chosen_logps - reference_chosen_logps)
+   - rejected reward: beta*(policy_chosen_logps - reference_chosen_logps)
+   - rewards/accuracies: (chosen_rewards > rejected_rewards)
+   - rewards/margins: (chosen_rewards - rejected_rewards).mean()
 
 
 ## Open questions
