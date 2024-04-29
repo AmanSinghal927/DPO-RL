@@ -1,7 +1,7 @@
 import torch
 import time
 import logging
-from utils import get_time
+from .utils import get_time
 
 class LM:
     def __init__(self, tokenizer, model, local_rank='cuda'):
@@ -51,6 +51,22 @@ class LM:
         self.top_k = cfg.top_k
         self.top_p = cfg.top_p
         self.dp = cfg.DP
+        generated_dataset = dataset.map(self.batched_inference, batched=True, batch_size=self.batch_size)
+        generated_dataset = generated_dataset.map(lambda x:{'samples':self.min_sample(x['samples'])})
+        self.generated_dataset = generated_dataset
+        end_time = time.time()
+        get_time(start_time, end_time)
+        # logging.info(f"DP is set to: {self.dp}")
+        print ("Inference finished!")
+
+    def get_inference_from_dict(self, dataset, dict):
+        print ("Starting inference")
+        start_time = time.time()
+        self.batch_size = dict["eval_generation_batch_size"]
+        self.max_new_tokens = dict["eval_generation_max_new_tokens"]
+        self.top_k = dict["eval_generation_top_k"]
+        self.top_p = dict["eval_generation_top_p"]
+        self.dp = False
         generated_dataset = dataset.map(self.batched_inference, batched=True, batch_size=self.batch_size)
         generated_dataset = generated_dataset.map(lambda x:{'samples':self.min_sample(x['samples'])})
         self.generated_dataset = generated_dataset
