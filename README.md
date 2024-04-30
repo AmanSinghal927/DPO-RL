@@ -36,6 +36,10 @@
    - rejected reward: beta*(policy_chosen_logps - reference_chosen_logps)
    - rewards/accuracies: (chosen_rewards > rejected_rewards)
    - rewards/margins: (chosen_rewards - rejected_rewards).mean()
+- SFT
+   - SFT generative QnA: llama sets the losses for the input prompt to zero
+   - MCQ loss calculation: huggingface internally shifts the labels by 1 so you don't have to do it for training or even for calculating loss 
+
 
 
 ## Open questions
