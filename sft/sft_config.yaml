@@ -1,0 +1,9 @@
+train_dataset: "/scratch/as14661/dpo_base/sft/data/medhalt_fs/med_halt_few_shot"
+train_sample: False
+model_nm: "gpt2-large"
+gradient_accumulation_steps: 2
+per_device_train_batch_size: 4
+logging_steps: 20
+lr: ???
+warmup: ???
+alpha: ???

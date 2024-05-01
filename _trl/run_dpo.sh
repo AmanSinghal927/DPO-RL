@@ -5,7 +5,7 @@
 #SBATCH --cpus-per-task=2
 #SBATCH --nodes 1
 #SBATCH --mem=32GB
-#SBATCH --time=14:25:00
+#SBATCH --time=15:25:00
 #SBATCH --mail-type=END
 #SBATCH --output=%jmain.out
 #SBATCH --error=%jmaintester.err
