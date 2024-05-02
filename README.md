@@ -49,6 +49,7 @@ https://huggingface.co/blog/how-to-generate
 should i use temprature > 0.6 when using top-p and top-k?
 - left padding vs right padding
 - how to run deepspeed with multi-gpu training
+- what is the best checkpoint? - how to know if your checkpoint is stable?
 
 ## Inference with speedup
 Create singularity config in a folder /scratch/user_id/deep
