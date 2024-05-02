@@ -171,7 +171,7 @@ def lr_lambda(current_step):
     else:
         return 1
 
-@hydra.main(version_base=None, config_path="/scratch/km6276/DPO-RL/_trl", config_name="dpo_config")
+@hydra.main(version_base=None, config_path="/scratch/as14661/dpo_base/_trl/", config_name="dpo_medhalt_config")
 def main(config):
     # get the model and reference model
     policy = DPO(config)
