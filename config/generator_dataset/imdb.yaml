@@ -1,5 +1,5 @@
-num_samples: 4
+num_samples: 1
 start: 8
 end: 8
-sample_cached: True
+sample_cached: False
 

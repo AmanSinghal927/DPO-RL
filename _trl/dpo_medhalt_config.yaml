@@ -1,9 +1,10 @@
+model_nm: "gpt2-large"
 model_path: "/scratch/as14661/dpo_base/sft/checkpoints/lr_5e-05_warmup_50_alpha_0"
 train_dataset: "/scratch/as14661/dpo_base/data_generation/data/medhalt_dataset_REDUCED"
 train_sample: False
 per_device_train_batch_size: 2
 gradient_accumulation_steps: 16
-logging_steps: 50
+logging_steps: 10
 evaluation_strategy: "steps"
 num_train_epochs: 1
 output_dir: "dpo_descriptiveness"

@@ -2,7 +2,7 @@ import transformers
 import torch
 from torch.utils.data import DataLoader
 from transformers import AutoTokenizer, AutoModelForCausalLM
-from utils import formatting_prompts_test, get_ids, get_index, flatten_list_columns
+from .utils import formatting_prompts_test, get_ids, get_index, flatten_list_columns
 from datasets import load_dataset, load_from_disk, Dataset
 import random
 from sklearn.metrics import accuracy_score

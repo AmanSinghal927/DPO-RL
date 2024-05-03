@@ -10,3 +10,4 @@ sft/*
 !sft/*.sh
 !sft/*.py
 !sft/*.yaml
+lr_5e-05_warmup_50_alpha_0.6/*

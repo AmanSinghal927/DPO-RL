@@ -1,0 +1,62 @@
+{
+  "citation": "",
+  "description": "",
+  "features": {
+    "question": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "correct_answer": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "correct_idx": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "options": {
+      "feature": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "_type": "Sequence"
+    },
+    "prompt": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "subject_name": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "output0": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "output1": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "output2": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "output3": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "formated_prompt": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "inferences": {
+      "feature": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "_type": "Sequence"
+    }
+  },
+  "homepage": "",
+  "license": ""
+}

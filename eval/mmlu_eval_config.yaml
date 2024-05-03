@@ -1,0 +1,12 @@
+pad_left: True
+deep_speed: True
+safetensors: True
+direct_path: "gpt2-large"
+name_or_path: "gpt2-large"
+device_map: "auto"
+datapath: "/scratch/as14661/dpo_base/sft/data/mmlu/content/mmlu"
+prompt: "prompt"
+eval_generation_batch_size: 32
+eval_generation_max_new_tokens: 512
+eval_generation_top_k: 50
+eval_generation_top_p: 0.95

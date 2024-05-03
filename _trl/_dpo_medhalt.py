@@ -152,7 +152,7 @@ class DPO:
     def load_model(self):
         print('loading the model')
         self.model = transformers.AutoModelForCausalLM.from_pretrained(self.config.model_path, cache_dir=".")
-        self.tokenizer = AutoTokenizer.from_pretrained(self.model_nm, cache_dir=".") #, device_map = "cuda")
+        self.tokenizer = AutoTokenizer.from_pretrained(self.config.model_nm, cache_dir=".") #, device_map = "cuda")
         self.config_tokenizer()
         print('model loading completed!')
 

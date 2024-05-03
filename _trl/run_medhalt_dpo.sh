@@ -2,7 +2,7 @@
 
 # Define arrays of parameters
 learning_rates=(5e-5 1e-6)
-warmups=(50 150 300)
+warmups=(20 50 100)
 betas=(0.6 0.1 0.3 0.01 0.9)
 
 # Loop over each combination of parameters

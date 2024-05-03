@@ -91,6 +91,10 @@ eval_every: 20_000
 # prevent wandb from logging more than once per minimum_log_interval_secs
 minimum_log_interval_secs: 1.0
 
+safetensors: True
+
+direct_path: "/scratch/as14661/dpo_base/sft/checkpoints/lr_5e-05_warmup_50_alpha_0"
+
 
 defaults:
 - _self_

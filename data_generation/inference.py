@@ -3,12 +3,15 @@ import time
 import logging
 from .utils import get_time
 
+
+
 class LM:
     def __init__(self, tokenizer, model, local_rank='cuda'):
        self.model = model
        self.tokenizer = tokenizer
        self.local_rank = local_rank
        print ("Created LM object for generation")
+
        
     def perform_inference(self, samples):
         tokenizer = self.tokenizer
@@ -36,12 +39,14 @@ class LM:
         return generated_texts
     
     def batched_inference(self, batch):
-        return {"inferences": [self.perform_inference(sample) for sample in batch['samples']]}
+        return {"inferences": [self.perform_inference(sample) for sample in batch['prompt']]}
     
     def min_sample(self, sample_list):
         min_length = min([len(s) for s in sample_list])
         min_length_string = [s for s in sample_list if len(s) == min_length][0]
         return min_length_string
+
+
     
     def get_inference(self, dataset, cfg):
         print ("Starting inference")
@@ -68,7 +73,6 @@ class LM:
         self.top_p = dict["eval_generation_top_p"]
         self.dp = False
         generated_dataset = dataset.map(self.batched_inference, batched=True, batch_size=self.batch_size)
-        generated_dataset = generated_dataset.map(lambda x:{'samples':self.min_sample(x['samples'])})
         self.generated_dataset = generated_dataset
         end_time = time.time()
         get_time(start_time, end_time)
